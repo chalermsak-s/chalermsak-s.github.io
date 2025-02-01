@@ -1,181 +1,77 @@
-<!doctype html>
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/vue@3.5.13/dist/vue.global.js"></script>
+    <title>Student Profiles</title>
 </head>
-
 <body>
-    <div class="bg-white py-24 sm:py-32">
+    <div id="app" class="bg-white py-24 sm:py-32">
         <div class="mx-auto grid max-w-7xl gap-20 px-6 lg:px-8 xl:grid-cols-3">
             <div class="max-w-xl">
-                <h2 class="text-3xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-4xl">Software Backend
-                    Development</h2>
-                <p class="mt-6 text-lg/8 text-gray-600">Backend development is the backbone of every powerful software system. It handles data processing, authentication, and ensures seamless communication between the frontend and database. A well-optimized backend improves performance, security, and scalability. Without a strong backend, even the most beautiful UI will fail to function properly. That’s why backend developers play a crucial role in building reliable and efficient applications. 🚀</p>
+                <h2 class="text-3xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-4xl">
+                    Software Backend Development
+                </h2>
+                <p class="mt-6 text-lg text-gray-600">
+                    Backend development is the backbone of every powerful software system. It handles data processing,
+                    authentication, and ensures seamless communication between the frontend and database. A well-optimized
+                    backend improves performance, security, and scalability. Without a strong backend, even the most beautiful UI
+                    will fail to function properly. That’s why backend developers play a crucial role in building reliable and
+                    efficient applications. 🚀
+                </p>
             </div>
-            <ul role="list" class="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2" id="student-list">
-
-                
-
-            </ul>
-        </div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script>
-        /*  
-        660631098	TANAT PIUMSUWAN
-        660632025	TANAWAT PIRIYAPATTANA
-        660632033	POOSANA THASSANAVISUT
-        660632035	WORAWAT KAEWSANMUENG
-        660632068	PUSIT SEEPHUENG
-        670631095	CHIRATCHAYA CHAROENYING
-        670631099	SUPITSARA KONGCHAK
-        670632028	THANAPHAT SRIBOONMA
-        670632056	KITTANAI YAMKLEEB
-        670632083	HATHAICHANOK PAENMAN
-        672132001	CHALERMSAK SAENGLEE
-        672132002	PHATCHARAPHON MUENSAENLAN
-        672132142	CHOMPOONOOT PIMOLRAT
-        672132143	TEERAPHAT RAKSAWONG
-        672132145	PURI PONGSOMBOONSUK
-        672132146	WEERAYUTH UARJAIPRA
-        672132148	SIRADANAI NAMTEP
-        672132165	KITTINAN LAISON
-        672132166	CHALISA WONGSA
-        672132168	TANATORN CHAIRIN
-        672132169	PARICHATR YANKAEW
-        */
-        $(() => {
-            array = [
-                {
-                    "code": 660631098,
-                    "profile": "https://avatar.iran.liara.run/username?username=",
-                    "fullname": "TANAT PIUMSUWAN"
-                },
-                {
-                    "code": 660632025,
-                    "profile": "https://avatar.iran.liara.run/username?username=",
-                    "fullname": "TANAWAT PIRIYAPATTANA"
-                },
-                {
-                    "code": 660632033,
-                    "profile": "https://avatar.iran.liara.run/username?username=",
-                    "fullname": "POOSANA THASSANAVISUT"
-                },
-                {
-                    "code": 660632035,
-                    "profile": "https://avatar.iran.liara.run/username?username=",
-                    "fullname": "WORAWAT KAEWSANMUENG"
-                },
-                {
-                    "code": 660632068,
-                    "profile": "https://avatar.iran.liara.run/username?username=",
-                    "fullname": "PUSIT SEEPHUENG"
-                },
-                {
-                    "code": 670631095,
-                    "profile": "https://avatar.iran.liara.run/username?username=",
-                    "fullname": "CHIRATCHAYA CHAROENYING"
-                },
-                {
-                    "code": 670631099,
-                    "profile": "https://avatar.iran.liara.run/username?username=",
-                    "fullname": "SUPITSARA KONGCHAK"
-                },
-                {
-                    "code": 670632028,
-                    "profile": "https://avatar.iran.liara.run/username?username=",
-                    "fullname": "THANAPHAT SRIBOONMA"
-                },
-                {
-                    "code": 670632056,
-                    "profile": "https://avatar.iran.liara.run/username?username=",
-                    "fullname": "KITTANAI YAMKLEEB"
-                },
-                {
-                    "code": 670632083,
-                    "profile": "https://avatar.iran.liara.run/username?username=",
-                    "fullname": "HATHAICHANOK PAENMAN"
-                },
-                {
-                    "code": 672132001,
-                    "profile": "https://avatar.iran.liara.run/username?username=",
-                    "fullname": "CHALERMSAK SAENGLEE"
-                },
-                {
-                    "code": 672132002,
-                    "profile": "https://avatar.iran.liara.run/username?username=",
-                    "fullname": "PHATCHARAPHON MUENSAENLAN"
-                },
-                {
-                    "code": 672132142,
-                    "profile": "https://avatar.iran.liara.run/username?username=",
-                    "fullname": "CHOMPOONOOT PIMOLRAT"
-                },
-                {
-                    "code": 672132143,
-                    "profile": "https://avatar.iran.liara.run/username?username=",
-                    "fullname": "TEERAPHAT RAKSAWONG"
-                },
-                {
-                    "code": 672132145,
-                    "profile": "https://avatar.iran.liara.run/username?username=",
-                    "fullname": "PURI PONGSOMBOONSUK"
-                },
-                {
-                    "code": 672132146,
-                    "profile": "https://avatar.iran.liara.run/username?username=",
-                    "fullname": "WEERAYUTH UARJAIPRA"
-                },
-                {
-                    "code": 672132148,
-                    "profile": "https://avatar.iran.liara.run/username?username=",
-                    "fullname": "SIRADANAI NAMTEP"
-                },
-                {
-                    "code": 672132165,
-                    "profile": "https://avatar.iran.liara.run/username?username=",
-                    "fullname": "KITTINAN LAISON"
-                },
-                {
-                    "code": 672132166,
-                    "profile": "https://avatar.iran.liara.run/username?username=",
-                    "fullname": "CHALISA WONGSA"
-                },
-                {
-                    "code": 672132168,
-                    "profile": "https://avatar.iran.liara.run/username?username=",
-                    "fullname": "TANATORN CHAIRIN"
-                },
-                {
-                    "code": 672132169,
-                    "profile": "https://avatar.iran.liara.run/username?username=",
-                    "fullname": "PARICHATR YANKAEW"
-                }
-            ]
-            let txt = '';
-            let no = 1;
-            array.map(data => {
-                txt += `
-                <li>
+            <ul role="list" class="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
+                <li v-for="student in students" :key="student.code">
                     <div class="flex items-center gap-x-6">
-                        <img class="size-16 rounded-full"
-                            src="${data.profile}${data.fullname}"
-                            alt="${data.fullname}">
+                        <img
+                            class="size-16 rounded-full"
+                            :src="`${student.profile}${encodeURIComponent(student.fullname)}`"
+                            :alt="student.fullname"
+                        />
                         <div>
-                            <h3 class="text-base/7 font-semibold tracking-tight text-gray-900">${data.code}</h3>
-                            <p class="text-sm/6 font-semibold text-indigo-600">${data.fullname}</p>
+                            <h3 class="text-base font-semibold text-gray-900">{{ student.code }}</h3>
+                            <p class="text-sm font-semibold text-indigo-600">{{ student.fullname }}</p>
                         </div>
                     </div>
                 </li>
-                `;
-                no++;
-            });
-            $('#student-list').html(txt);
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    students: [
+                        { code: 660631098, profile: "https://avatar.iran.liara.run/username?username=", fullname: "TANAT PIUMSUWAN" },
+                        { code: 660632025, profile: "https://avatar.iran.liara.run/username?username=", fullname: "TANAWAT PIRIYAPATTANA" },
+                        { code: 660632033, profile: "https://avatar.iran.liara.run/username?username=", fullname: "POOSANA THASSANAVISUT" },
+                        { code: 660632035, profile: "https://avatar.iran.liara.run/username?username=", fullname: "WORAWAT KAEWSANMUENG" },
+                        { code: 660632068, profile: "https://avatar.iran.liara.run/username?username=", fullname: "PUSIT SEEPHUENG" },
+                        { code: 670631095, profile: "https://avatar.iran.liara.run/username?username=", fullname: "CHIRATCHAYA CHAROENYING" },
+                        { code: 670631099, profile: "https://avatar.iran.liara.run/username?username=", fullname: "SUPITSARA KONGCHAK" },
+                        { code: 670632028, profile: "https://avatar.iran.liara.run/username?username=", fullname: "THANAPHAT SRIBOONMA" },
+                        { code: 670632056, profile: "https://avatar.iran.liara.run/username?username=", fullname: "KITTANAI YAMKLEEB" },
+                        { code: 670632083, profile: "https://avatar.iran.liara.run/username?username=", fullname: "HATHAICHANOK PAENMAN" },
+                        { code: 672132001, profile: "https://avatar.iran.liara.run/username?username=", fullname: "CHALERMSAK SAENGLEE" },
+                        { code: 672132002, profile: "https://avatar.iran.liara.run/username?username=", fullname: "PHATCHARAPHON MUENSAENLAN" },
+                        { code: 672132142, profile: "https://avatar.iran.liara.run/username?username=", fullname: "CHOMPOONOOT PIMOLRAT" },
+                        { code: 672132143, profile: "https://avatar.iran.liara.run/username?username=", fullname: "TEERAPHAT RAKSAWONG" },
+                        { code: 672132145, profile: "https://avatar.iran.liara.run/username?username=", fullname: "PURI PONGSOMBOONSUK" },
+                        { code: 672132146, profile: "https://avatar.iran.liara.run/username?username=", fullname: "WEERAYUTH UARJAIPRA" },
+                        { code: 672132148, profile: "https://avatar.iran.liara.run/username?username=", fullname: "SIRADANAI NAMTEP" },
+                        { code: 672132165, profile: "https://avatar.iran.liara.run/username?username=", fullname: "KITTINAN LAISON" },
+                        { code: 672132166, profile: "https://avatar.iran.liara.run/username?username=", fullname: "CHALISA WONGSA" },
+                        { code: 672132168, profile: "https://avatar.iran.liara.run/username?username=", fullname: "TANATORN CHAIRIN" },
+                        { code: 672132169, profile: "https://avatar.iran.liara.run/username?username=", fullname: "PARICHATR YANKAEW" }
+                    ]
+                };
+            }
         });
+
+        app.mount("#app");
     </script>
 </body>
-
 </html>
